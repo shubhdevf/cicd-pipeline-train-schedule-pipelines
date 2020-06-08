@@ -21,12 +21,6 @@ pipeline {
                 }
             
     }
-    stage("Running"){
-        steps{
-            sh label: '', script: 'npm start'
-
-        }
-    }
 
     }
 }
