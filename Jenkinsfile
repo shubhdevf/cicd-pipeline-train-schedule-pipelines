@@ -1,24 +1,24 @@
 pipeline {
-    agent { 
-
-    docker {image 'node:carbon'}
-     } 
+    agent { Dockerfile true } 
+    
     stages {
 
     stage('Setting the stage'){
-    steps{
+    
+        steps{
 
-    sh label: '', script: '''ls'''
+            sh label: '', script: '''ls'''
 
-}
+        }
     }
-    stage("Building"){
-                steps{
-                    dir("${env.WORKSPACE}"){
-                        sh label: '', script: 'npm install'
-                    }
 
+    stage("Building"){
+        steps{
+                dir("${env.WORKSPACE}"){
+                    sh label: '', script: 'npm install'
                 }
+
+        }
             
     }
 
