@@ -15,7 +15,7 @@ pipeline {
     stage("Building"){
         steps{
                 dir("${env.WORKSPACE}/aspnetapp"){
-                    bat label: '', script: 'Building'
+                    bat label: '', script: 'echo Building'
                     bat label: 'Restore Packages', script: 'nuget restore'
                     bat label: 'Compile Project', script: 'msbuild /p:Configuration=Release'
                 }
