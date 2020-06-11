@@ -1,5 +1,5 @@
 pipeline {
-    agent { Dockerfile true } 
+    agent {  docker {image 'mcr.microsoft.com/dotnet/framework/sdk:4.8'} } 
     
     stages {
 
@@ -7,15 +7,17 @@ pipeline {
     
         steps{
 
-            sh label: '', script: '''ls'''
+            bat label: '', script: '''dir'''
 
         }
     }
 
     stage("Building"){
         steps{
-                dir("${env.WORKSPACE}"){
-                    sh label: '', script: 'npm install'
+                dir("${env.WORKSPACE}/aspnetapp"){
+                    bat label: '', script: 'Building'
+                    bat label: 'Restore Packages', script: 'nuget restore'
+                    bat label: 'Compile Project', script: 'msbuild /p:Configuration=Release'
                 }
 
         }
