@@ -17,7 +17,7 @@ pipeline {
 
     stage("Building"){
         environment{
-            VERSION_SUFFIX = getVersionSuffix rcNumber: ${VERSION_RC, isReleaseCandidate: ${RC}}
+            VERSION_SUFFIX = getVersionSuffix rcNumber: ${VERSION_RC}, isReleaseCandidate: ${RC}}
         }
         steps{
                 dir("${env.WORKSPACE}/aspnetapp"){
