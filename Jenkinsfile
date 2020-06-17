@@ -40,7 +40,7 @@ pipeline {
     }
 }
 
-string getVersionSuffix(){
+String getVersionSuffix(){
     if (params.RC){
     return env.VERSION_RC
     }
