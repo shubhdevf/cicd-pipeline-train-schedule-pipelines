@@ -1,3 +1,5 @@
+library identifier: 'shared-libraries-test@master', retriever: modernSCM([$class: 'GitSCMSource', credentialsId: 'rdsystems-jenkins', remote: 'https://bitbucket.org/uplandsoftware/shared-libraries-test.git', traits: [gitBranchDiscovery()]])
+
 pipeline {
 
     agent {  docker {image 'mcr.microsoft.com/dotnet/framework/sdk:4.8'} } 
@@ -37,15 +39,6 @@ pipeline {
             echo "Published"
         }
     }
-    }
-}
-
-String getVersionSuffix(){
-    if (params.RC){
-    return env.VERSION_RC
-    }
-    else{
-    return env.VERSIOJ_RC + '+ci.' + env.BUILD_NUMBER
     }
 }
 
