@@ -25,6 +25,13 @@ pipeline {
                     bat label: 'Compile Project', script: 'msbuild /p:Configuration=Release'
                 }
 
+                script {
+                    def mygitfuncs = new devfactory.git.gitStuff()
+
+                    echo "My commit: ${mygitfuncs("${env.WORKSPACE}/.git")}"
+
+                }
+
 
         }
             
