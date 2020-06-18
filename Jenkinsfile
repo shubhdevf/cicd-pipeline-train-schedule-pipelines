@@ -28,7 +28,7 @@ pipeline {
                 script {
                     def mygitfuncs = new devfactory.git.gitStuff()
 
-                    echo "My commit: ${mygitfuncs("${env.WORKSPACE}/.git")}"
+                    echo "My commit: ${mygitfuncs.gitCommit("${env.WORKSPACE}/.git")}"
 
                 }
 
