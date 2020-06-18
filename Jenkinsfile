@@ -1,5 +1,3 @@
-library identifier: 'shared-libraries-test@master', retriever: modernSCM([$class: 'GitSCMSource', credentialsId: 'rdsystems-jenkins', remote: 'https://bitbucket.org/uplandsoftware/shared-libraries-test.git', traits: [gitBranchDiscovery()]])
-
 pipeline {
 
     agent {  docker {image 'mcr.microsoft.com/dotnet/framework/sdk:4.8'} } 
@@ -21,6 +19,7 @@ pipeline {
         }
         steps{
                 dir("${env.WORKSPACE}/aspnetapp"){
+                    sayHello 'John'
                     bat label: '', script: 'echo Building'
                     bat label: 'Restore Packages', script: 'nuget restore'
                     bat label: 'Compile Project', script: 'msbuild /p:Configuration=Release'
