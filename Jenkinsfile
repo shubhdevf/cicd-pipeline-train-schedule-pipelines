@@ -53,8 +53,6 @@ pipeline {
         }
 
         }
-            
-    }
 
     stage("Publish"){
         when{
