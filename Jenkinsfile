@@ -1,6 +1,5 @@
 pipeline {
-
-    agent {  docker {image 'mcr.microsoft.com/dotnet/framework/sdk:4.8'} } 
+    agent { label 'SSO-1' } 
 
     parameters{
         booleanParam(name: 'RC', defaultValue: false, description: 'Is this a Release Candidate?')
