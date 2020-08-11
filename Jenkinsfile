@@ -51,7 +51,7 @@ pipeline {
                                         <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
                                         <PackageReference Include="NLog" Version="4.6.4" />
                                       </ItemGroup>
-                                      </Project>''', 1.2.0)
+                                      </Project>''', "1.2.0")
                 }
 
 
