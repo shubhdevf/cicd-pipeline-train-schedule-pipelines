@@ -32,6 +32,29 @@ pipeline {
 
                 }
 
+                echo "Trying to modify the XML"
+
+                script{
+
+                    def xmlman = new devfactory.xml.xmlManipulator()
+                    xmlman.modifyXML('''<Project Sdk="Microsoft.NET.Sdk">
+
+                                      <PropertyGroup>
+                                        <TargetFramework>netstandard2.0</TargetFramework>
+                                        <PackageId>UplandOne.Bitbucket</PackageId>
+                                        <Version>1.0.0</Version>
+                                        <Company>Upland Software</Company>
+                                        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+                                      </PropertyGroup>
+
+                                      <ItemGroup>
+                                        <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.2.0" />
+                                        <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+                                        <PackageReference Include="NLog" Version="4.6.4" />
+                                      </ItemGroup>
+                                      </Project>''', 1.2.0)
+                }
+
 
         }
             
