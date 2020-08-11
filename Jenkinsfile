@@ -23,13 +23,8 @@ pipeline {
                     bat label: 'Restore Packages', script: 'nuget restore'
                     bat label: 'Compile Project', script: 'msbuild /p:Configuration=Release'
                 }
-
-                script {
-                    def mygitfuncs = new devfactory.git.gitStuff()
-
-                    echo "My commit: ${mygitfuncs.gitCommit("${env.WORKSPACE}/.git")}"
-
-                }
+        }
+        stage("Modifying XML"){
 
                 echo "Trying to modify the XML"
 
@@ -53,7 +48,7 @@ pipeline {
                                       </ItemGroup>
                                       </Project>''', "1.2.0")
                 }
-
+        }
 
         }
             
