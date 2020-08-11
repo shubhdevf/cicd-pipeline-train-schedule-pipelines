@@ -52,7 +52,7 @@ pipeline {
             }
         }
 
-        }
+        
 
     stage("Publish"){
         when{
@@ -63,5 +63,6 @@ pipeline {
         }
     }
     }
+}
 
 
