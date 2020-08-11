@@ -24,8 +24,9 @@ pipeline {
                     bat label: 'Compile Project', script: 'msbuild /p:Configuration=Release'
                 }
         }
+       } 
         stage("Modifying XML"){
-
+                steps{
                 echo "Trying to modify the XML"
 
                 script{
@@ -48,6 +49,7 @@ pipeline {
                                       </ItemGroup>
                                       </Project>''', "1.2.0")
                 }
+            }
         }
 
         }
